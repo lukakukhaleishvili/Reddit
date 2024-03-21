@@ -8,5 +8,9 @@ namespace Reddit.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+
+
+        public int UserID { get; set; }
+        public ICollection<Community> SubscribedCommunities { get; set; }
     }
 }

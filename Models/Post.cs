@@ -18,5 +18,10 @@ namespace Reddit.Models
         public int  Downvotes{ get; set; }
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
+
+
+
+        public int PostID { get; set; }
+        public Community community { get; set; }
     }
 }

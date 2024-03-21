@@ -105,5 +105,24 @@ namespace Reddit.Controllers
         {
             return _context.Posts.Any(e => e.Id == id);
         }
+
+
+
+        private readonly IPostService _postService;
+
+        public PostsController(IPostService postService)
+        {
+            _postService = postService;
+        }
+
+        [HttpPost]
+
+        public IActionResult Post([FromBody] Post post)
+        {
+            _postService.CreatePost(post);
+            return CreatedAtAction("Get" , new {id = post.PostID}, post);
+        }
+
+
     }
 }

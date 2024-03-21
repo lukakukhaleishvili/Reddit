@@ -36,5 +36,26 @@ namespace Reddit.Controllers
         {
             return await _context.Users.ToListAsync();
         }
+
+
+
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
+
+        [HttpPost("joincommunity")]
+        public IActionResult JoinCommunity([FromBody] UserCommunityJoinRequest request)
+        {
+            var usrId = request.UserId;
+            var communityId = request.CommunityId;
+
+            _userService.JoinCommunity(usrId, communityId);
+
+            return OK();
+        }
     }
 }
