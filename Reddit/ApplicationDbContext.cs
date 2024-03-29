@@ -13,6 +13,8 @@ namespace Reddit
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Vote> Vote { get; set; }
 
+        public DbSet<Community> Community {get; set}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Configure the DbContext to use an In-Memory database
